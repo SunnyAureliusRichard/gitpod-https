@@ -1,0 +1,15 @@
+tasks:
+  - name: run the server
+    command: |
+      node main.js
+      
+  - name: curl
+    command: |
+      gp ports await 9761
+      curl -k https://localhost:9761
+
+ports:
+  - name: 'Server'
+    port: 9761
+    onOpen: open-browser
+    visibility: public
